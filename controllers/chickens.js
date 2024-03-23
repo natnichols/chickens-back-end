@@ -9,3 +9,13 @@ export async function create(req, res) {
     res.status(500).json(`🚨`, err)
   }
 }
+
+export async function index(req, res) {
+  try {
+    const chickens = await Chicken.find({}).sort({ createdAt: 'desc' })
+    res.json(chickens)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}
