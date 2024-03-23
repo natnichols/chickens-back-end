@@ -5,6 +5,12 @@ const router = Router()
 
 // ========== Public Routes ===========
 
+// GET to localhost:3001/api/chickens
+
+// POST to localhost:3001/api/chickens
+router.post('/', chickensCtrl.create)
+// DELETE to localhost:3001/api/chickens/:chickenId
+
 
 export {
   router
