@@ -19,3 +19,17 @@ export async function index(req, res) {
     res.status(500).json(`🚨`, err)
   }
 }
+
+async function deleteChicken(req, res) {
+  try {
+    const chicken = await Chicken.findByIdAndDelete(req.params.chickenId)
+    res.json(chicken)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}
+
+export {
+  deleteChicken as delete
+}
